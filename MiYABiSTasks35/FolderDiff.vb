@@ -1,24 +1,24 @@
-
+ï»¿
 Imports System.IO
 
 ''' <summary>
-''' ‚Q‚Â‚ÌƒtƒHƒ‹ƒ_”z‰º‚É‘¶İ‚·‚éƒtƒ@ƒCƒ‹‚ğ”äŠr‚·‚éB
+''' ï¼’ã¤ã®ãƒ•ã‚©ãƒ«ãƒ€é…ä¸‹ã«å­˜åœ¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ¯”è¼ƒã™ã‚‹ã€‚
 ''' </summary>
 ''' 
 ''' <remarks>
-''' ”äŠr‚·‚é‚Ì‚ÍAƒtƒ@ƒCƒ‹‚Ì—L–³Aƒtƒ@ƒCƒ‹‚ÌÅIXV“ú•t‚Ì‚İ‚Å‚·B<br/>
-''' ƒtƒ@ƒCƒ‹‚Ì“à—e‚Í”äŠr‚µ‚Ü‚¹‚ñB<br/>
+''' æ¯”è¼ƒã™ã‚‹ã®ã¯ã€ãƒ•ã‚¡ã‚¤ãƒ«ã®æœ‰ç„¡ã€ãƒ•ã‚¡ã‚¤ãƒ«ã®æœ€çµ‚æ›´æ–°æ—¥ä»˜ã®ã¿ã§ã™ã€‚<br/>
+''' ãƒ•ã‚¡ã‚¤ãƒ«ã®å†…å®¹ã¯æ¯”è¼ƒã—ã¾ã›ã‚“ã€‚<br/>
 ''' <br/>
-''' o—Íƒpƒ‰ƒ[ƒ^‚Í‰º‹L‚Ì’Ê‚è‚Å‚·B<br/>
+''' å‡ºåŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¯ä¸‹è¨˜ã®é€šã‚Šã§ã™ã€‚<br/>
 ''' <br/>
 ''' <list type="table">
 ''' <listheader>
-''' <term>o—Íƒpƒ‰ƒ[ƒ^</term><description>à–¾</description>
+''' <term>å‡ºåŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿</term><description>èª¬æ˜</description>
 ''' </listheader>
-''' <item><term>SrcOnly</term><description>”äŠrŒ³‚Ì‚İ‚É‘¶İ‚·‚éƒtƒ@ƒCƒ‹</description></item>
-''' <item><term>DstOnly</term><description>”äŠræ‚Ì‚İ‚É‘¶İ‚·‚éƒtƒ@ƒCƒ‹</description></item>
-''' <item><term>SrcDifferent</term><description>‘o•û‚É‘¶İ‚µ‚ÄXV“ú•t‚ªˆÙ‚È‚éƒtƒ@ƒCƒ‹i”äŠrŒ³j</description></item>
-''' <item><term>DstDifferent</term><description>‘o•û‚É‘¶İ‚µ‚ÄXV“ú•t‚ªˆÙ‚È‚éƒtƒ@ƒCƒ‹i”äŠræj</description></item>
+''' <item><term>SrcOnly</term><description>æ¯”è¼ƒå…ƒã®ã¿ã«å­˜åœ¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«</description></item>
+''' <item><term>DstOnly</term><description>æ¯”è¼ƒå…ˆã®ã¿ã«å­˜åœ¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«</description></item>
+''' <item><term>SrcDifferent</term><description>åŒæ–¹ã«å­˜åœ¨ã—ã¦æ›´æ–°æ—¥ä»˜ãŒç•°ãªã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆæ¯”è¼ƒå…ƒï¼‰</description></item>
+''' <item><term>DstDifferent</term><description>åŒæ–¹ã«å­˜åœ¨ã—ã¦æ›´æ–°æ—¥ä»˜ãŒç•°ãªã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ï¼ˆæ¯”è¼ƒå…ˆï¼‰</description></item>
 ''' </list>
 ''' 
 ''' <example>
@@ -27,9 +27,9 @@ Imports System.IO
 ''' 	<Target Name="Build">
 ''' 		<MiYABiS.Build.Tasks.FolderDiff
 ''' 				FolderSrc="$(MSBuildProjectDirectory)\data"
-''' 				FolderDst="$(MSBuildProjectDirectory)\ƒRƒs[ ` data"
+''' 				FolderDst="$(MSBuildProjectDirectory)\ã‚³ãƒ”ãƒ¼ ï½ data"
 ''' 				ExcludeSrc="$(MSBuildProjectDirectory)\data\**\*.scc"
-''' 				ExcludeDst="$(MSBuildProjectDirectory)\ƒRƒs[ ` data\**\*.log"
+''' 				ExcludeDst="$(MSBuildProjectDirectory)\ã‚³ãƒ”ãƒ¼ ï½ data\**\*.log"
 ''' 				IgnoreCase="True">
 ''' 			<Output TaskParameter="SrcOnly" ItemName="SrcOnlyFiles"/>
 ''' 			<Output TaskParameter="DstOnly" ItemName="DstOnlyFiles"/>
@@ -45,17 +45,17 @@ Imports System.IO
 Public Class FolderDiff
 	Inherits Task
 
-	''' <summary>”äŠrŒ³ƒtƒHƒ‹ƒ_–¼</summary>
+	''' <summary>æ¯”è¼ƒå…ƒãƒ•ã‚©ãƒ«ãƒ€å</summary>
 	Private _folderSrc As String
-	''' <summary>”äŠræƒtƒHƒ‹ƒ_–¼</summary>
+	''' <summary>æ¯”è¼ƒå…ˆãƒ•ã‚©ãƒ«ãƒ€å</summary>
 	Private _folderDst As String
-	''' <summary>”äŠr‘ÎÛŠO‚Ìƒtƒ@ƒCƒ‹</summary>
+	''' <summary>æ¯”è¼ƒå¯¾è±¡å¤–ã®ãƒ•ã‚¡ã‚¤ãƒ«</summary>
 	Private _excludeSrc As List(Of ITaskItem)
 	Private _excludeSrcNames As List(Of String)
 	Private _excludeDst As List(Of ITaskItem)
 	Private _excludeDstNames As List(Of String)
 
-	''' <summary>‘å•¶šA¬•¶š‚Ì‹æ•Ê</summary>
+	''' <summary>å¤§æ–‡å­—ã€å°æ–‡å­—ã®åŒºåˆ¥</summary>
 	Private _ignorecase As Boolean
 
 	Private _srcOnly As List(Of ITaskItem)
@@ -63,10 +63,10 @@ Public Class FolderDiff
 	Private _srcDifferent As List(Of ITaskItem)
 	Private _dstDifferent As List(Of ITaskItem)
 
-#Region " ƒRƒ“ƒXƒgƒ‰ƒNƒ^ "
+#Region " ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ "
 
 	''' <summary>
-	''' ƒfƒtƒHƒ‹ƒgƒRƒ“ƒXƒgƒ‰ƒNƒ^
+	''' ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
 	''' </summary>
 	''' <remarks></remarks>
 	Public Sub New()
@@ -78,16 +78,16 @@ Public Class FolderDiff
 	End Sub
 
 #End Region
-#Region " ƒvƒƒpƒeƒB "
+#Region " ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ "
 
 #Region " Input "
 
 	''' <summary>
-	''' ”äŠrŒ³‚ÌƒtƒHƒ‹ƒ_–¼
+	''' æ¯”è¼ƒå…ƒã®ãƒ•ã‚©ãƒ«ãƒ€å
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
-	''' <remarks>•K‚¸w’è‚·‚é</remarks>
+	''' <remarks>å¿…ãšæŒ‡å®šã™ã‚‹</remarks>
 	<Required()> _
 	Public Property FolderSrc() As String
 		Get
@@ -99,11 +99,11 @@ Public Class FolderDiff
 	End Property
 
 	''' <summary>
-	''' ”äŠræ‚ÌƒtƒHƒ‹ƒ_–¼
+	''' æ¯”è¼ƒå…ˆã®ãƒ•ã‚©ãƒ«ãƒ€å
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
-	''' <remarks>•K‚¸w’è‚·‚é</remarks>
+	''' <remarks>å¿…ãšæŒ‡å®šã™ã‚‹</remarks>
 	<Required()> _
 	Public Property FolderDst() As String
 		Get
@@ -115,13 +115,13 @@ Public Class FolderDiff
 	End Property
 
 	''' <summary>
-	''' ‘å•¶šA¬•¶š‚Ì‹æ•Ê
+	''' å¤§æ–‡å­—ã€å°æ–‡å­—ã®åŒºåˆ¥
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
 	''' <remarks>
-	''' È—ª‰Â”\BTrue ‚Ì‚Æ‚«‚ÍA‘å•¶š‚Æ¬•¶š‚Ì‹æ•Ê‚ğ‚µ‚Ü‚·B
-	''' False ‚Ì‚Æ‚«‚ÍA‹æ•Ê‚ğ‚µ‚Ü‚¹‚ñBÈ—ª‚Í‹æ•Ê‚ğ‚µ‚Ü‚·B
+	''' çœç•¥å¯èƒ½ã€‚True ã®ã¨ãã¯ã€å¤§æ–‡å­—ã¨å°æ–‡å­—ã®åŒºåˆ¥ã‚’ã—ã¾ã™ã€‚
+	''' False ã®ã¨ãã¯ã€åŒºåˆ¥ã‚’ã—ã¾ã›ã‚“ã€‚çœç•¥æ™‚ã¯åŒºåˆ¥ã‚’ã—ã¾ã™ã€‚
 	''' </remarks>
 	Public Property IgnoreCase() As System.Boolean
 		Get
@@ -133,7 +133,7 @@ Public Class FolderDiff
 	End Property
 
 	''' <summary>
-	''' ”äŠrŒ³‚Ì”äŠr‘ÎÛŠO‚Ìƒtƒ@ƒCƒ‹
+	''' æ¯”è¼ƒå…ƒã®æ¯”è¼ƒå¯¾è±¡å¤–ã®ãƒ•ã‚¡ã‚¤ãƒ«
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
@@ -164,7 +164,7 @@ Public Class FolderDiff
 	End Property
 
 	''' <summary>
-	''' ”äŠræ‚Ì”äŠr‘ÎÛŠO‚Ìƒtƒ@ƒCƒ‹
+	''' æ¯”è¼ƒå…ˆã®æ¯”è¼ƒå¯¾è±¡å¤–ã®ãƒ•ã‚¡ã‚¤ãƒ«
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
@@ -198,12 +198,12 @@ Public Class FolderDiff
 #Region " Output "
 
 	''' <summary>
-	''' ”äŠrŒ³‚ÌƒtƒHƒ‹ƒ_‚É‚Ì‚İ‘¶İ‚·‚éƒtƒ@ƒCƒ‹–¼
+	''' æ¯”è¼ƒå…ƒã®ãƒ•ã‚©ãƒ«ãƒ€ã«ã®ã¿å­˜åœ¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«å
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
 	''' <remarks>
-	''' ITaskItem Œ^”z—ñ‚Ìo—Íƒpƒ‰ƒ[ƒ^‚Å‚·B
+	''' ITaskItem å‹é…åˆ—ã®å‡ºåŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã§ã™ã€‚
 	''' </remarks>
 	<Output()> _
 	Public ReadOnly Property SrcOnly() As Microsoft.Build.Framework.ITaskItem()
@@ -213,12 +213,12 @@ Public Class FolderDiff
 	End Property
 
 	''' <summary>
-	''' ”äŠræ‚ÌƒtƒHƒ‹ƒ_‚É‚Ì‚İ‘¶İ‚·‚éƒtƒ@ƒCƒ‹–¼
+	''' æ¯”è¼ƒå…ˆã®ãƒ•ã‚©ãƒ«ãƒ€ã«ã®ã¿å­˜åœ¨ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«å
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
 	''' <remarks>
-	''' ITaskItem Œ^”z—ñ‚Ìo—Íƒpƒ‰ƒ[ƒ^‚Å‚·B
+	''' ITaskItem å‹é…åˆ—ã®å‡ºåŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã§ã™ã€‚
 	''' </remarks>
 	<Output()> _
 	Public ReadOnly Property DstOnly() As Microsoft.Build.Framework.ITaskItem()
@@ -228,12 +228,12 @@ Public Class FolderDiff
 	End Property
 
 	''' <summary>
-	''' ”äŠrŒ³‚Æ”äŠræ‚ÅÅIXV“ú•t‚ªˆÙ‚È‚éƒtƒ@ƒCƒ‹–¼i”äŠrŒ³j
+	''' æ¯”è¼ƒå…ƒã¨æ¯”è¼ƒå…ˆã§æœ€çµ‚æ›´æ–°æ—¥ä»˜ãŒç•°ãªã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆæ¯”è¼ƒå…ƒï¼‰
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
 	''' <remarks>
-	''' ITaskItem Œ^”z—ñ‚Ìo—Íƒpƒ‰ƒ[ƒ^‚Å‚·B
+	''' ITaskItem å‹é…åˆ—ã®å‡ºåŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã§ã™ã€‚
 	''' </remarks>
 	<Output()> _
 	Public ReadOnly Property SrcDifferent() As Microsoft.Build.Framework.ITaskItem()
@@ -243,12 +243,12 @@ Public Class FolderDiff
 	End Property
 
 	''' <summary>
-	''' ”äŠrŒ³‚Æ”äŠræ‚ÅÅIXV“ú•t‚ªˆÙ‚È‚éƒtƒ@ƒCƒ‹–¼i”äŠræj
+	''' æ¯”è¼ƒå…ƒã¨æ¯”è¼ƒå…ˆã§æœ€çµ‚æ›´æ–°æ—¥ä»˜ãŒç•°ãªã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åï¼ˆæ¯”è¼ƒå…ˆï¼‰
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
 	''' <remarks>
-	''' ITaskItem Œ^”z—ñ‚Ìo—Íƒpƒ‰ƒ[ƒ^‚Å‚·B
+	''' ITaskItem å‹é…åˆ—ã®å‡ºåŠ›ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã§ã™ã€‚
 	''' </remarks>
 	<Output()> _
 	Public ReadOnly Property DstDifferent() As Microsoft.Build.Framework.ITaskItem()
@@ -263,7 +263,7 @@ Public Class FolderDiff
 #Region " Overrides Execute "
 
 	''' <summary>
-	''' ƒ^ƒXƒN‚ğÀs‚µ‚Ü‚·B
+	''' ã‚¿ã‚¹ã‚¯ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
 	''' </summary>
 	''' <returns></returns>
 	''' <remarks></remarks>
@@ -310,23 +310,23 @@ Public Class FolderDiff
 				Continue For
 			End If
 
-			' ”äŠr‘ÎÛŠOƒtƒ@ƒCƒ‹‚©H
+			' æ¯”è¼ƒå¯¾è±¡å¤–ãƒ•ã‚¡ã‚¤ãƒ«ã‹ï¼Ÿ
 			If _execludeFilesContains(_excludeSrcNames, keySrc) Then
 				Continue For
 			End If
 
-			' ”äŠræ‚É‘¶İ‚·‚é‚©H
+			' æ¯”è¼ƒå…ˆã«å­˜åœ¨ã™ã‚‹ã‹ï¼Ÿ
 			If Not dst.GetKeyList.Contains(keyDst) Then
 				_srcOnly.Add(New TaskItem(keySrc))
 				Continue For
 			End If
 
-			' “¯‚¶‚©H
+			' åŒã˜ã‹ï¼Ÿ
 			If valSrc.Equals(valDst) Then
 				Continue For
 			End If
 
-			' “ú•t‚ªˆÙ‚È‚é
+			' æ—¥ä»˜ãŒç•°ãªã‚‹
 			_srcDifferent.Add(New TaskItem(keySrc))
 			_dstDifferent.Add(New TaskItem(keyDst))
 		Next
@@ -336,7 +336,7 @@ Public Class FolderDiff
 
 	Private Sub _makeDstOnlyList(ByVal dstBuf As SortedList)
 		For Each key As String In dstBuf.Keys
-			' ”äŠr‘ÎÛŠOƒtƒ@ƒCƒ‹‚©H
+			' æ¯”è¼ƒå¯¾è±¡å¤–ãƒ•ã‚¡ã‚¤ãƒ«ã‹ï¼Ÿ
 			If _execludeFilesContains(_excludeDstNames, key) Then
 				Continue For
 			End If

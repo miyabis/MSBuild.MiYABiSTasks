@@ -1,6 +1,6 @@
 # MSBuild.MiYABiSTasks
 
-[![Build status](https://ci.appveyor.com/api/projects/status/kew6mx25v90xylxc?svg=true)](https://ci.appveyor.com/project/miyabis/seleniumtestassist)
+[![Build status](https://ci.appveyor.com/api/projects/status/1wyxf1oh8tl592sg?svg=true)](https://ci.appveyor.com/project/miyabis/msbuild-miyabistasks)
 [![NuGet](https://img.shields.io/nuget/v/MiYABiS.MSBuild.svg)](https://www.nuget.org/packages/MiYABiS.MSBuild/)
 
 It is a task collection that adds an insufficient amount in the tasking facility of the MSBuild standard. 

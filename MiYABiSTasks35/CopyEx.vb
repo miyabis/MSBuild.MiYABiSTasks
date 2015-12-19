@@ -1,24 +1,24 @@
-Imports System.IO
+﻿Imports System.IO
 
 ''' <summary>
-''' �t�@�C����t�H���_�̃R�s�[������B
+''' ファイルやフォルダのコピーをする。
 ''' </summary>
 ''' 
 ''' <remarks>
-''' MSBuild �W���� <see cref="Microsoft.Build.Tasks.Copy"/> �^�X�N�̋@�\���g�������^�X�N�ł��B<br/>
+''' MSBuild 標準の <see cref="Microsoft.Build.Tasks.Copy"/> タスクの機能を拡張したタスクです。<br/>
 ''' <br/>
 ''' <list type="bullet">
-''' <item><description><c>DestinationFolder</c> ���w�肳�ꂽ�Ƃ��A�R�s�[���̃t�@�C��������p�X������菜�����z���̃p�X�\�������̂܂܃R�s�[�ł��܂��B</description></item>
-''' <item><description><c>SkipUnchanged</c> �� <c>True</c> �̂Ƃ��A�R�s�[����Ȃ������t�@�C�����o�̓p�����[�^�Ɋ܂܂�Ȃ��B</description></item>
+''' <item><description><c>DestinationFolder</c> が指定されたとき、コピー元のファイル名からパス名を取り除いた配下のパス構成をそのままコピーできます。</description></item>
+''' <item><description><c>SkipUnchanged</c> が <c>True</c> のとき、コピーされなかったファイルが出力パラメータに含まれない。</description></item>
 ''' </list>
 ''' <br/>
-''' �o�̓p�����[�^�͉��L�̒ʂ�ł��B<br/>
+''' 出力パラメータは下記の通りです。<br/>
 ''' <br/>
 ''' <list type="table">
 ''' <listheader>
-''' <term>�o�̓p�����[�^</term><description>����</description>
+''' <term>出力パラメータ</term><description>説明</description>
 ''' </listheader>
-''' <item><term>CopiedFiles</term><description>���ۂɃR�s�[�����t�@�C��</description></item>
+''' <item><term>CopiedFiles</term><description>実際にコピーしたファイル</description></item>
 ''' </list>
 ''' 
 ''' <example>
@@ -57,10 +57,10 @@ Public Class CopyEx
 	Private _overwriteReadOnly As Boolean
 	Private _skipUnchanged As Boolean
 
-#Region " �R���X�g���N�^ "
+#Region " コンストラクタ "
 
 	''' <summary>
-	''' �f�t�H���g�R���X�g���N�^
+	''' デフォルトコンストラクタ
 	''' </summary>
 	''' <remarks></remarks>
 	Public Sub New()
@@ -73,18 +73,18 @@ Public Class CopyEx
 	End Sub
 
 #End Region
-#Region " �v���p�e�B "
+#Region " プロパティ "
 
 #Region " Input "
 
 	''' <summary>
-	''' �R�s�[���ƂȂ�t�@�C��
+	''' コピー元となるファイル
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
 	''' <remarks>
-	''' �K���w�肷�� ITaskItem �^�z��̃p�����[�^�ł��B<br/>
-	''' �R�s�[���ƂȂ�t�@�C�����w�肵�܂��B
+	''' 必ず指定する ITaskItem 型配列のパラメータです。<br/>
+	''' コピー元となるファイルを指定します。
 	''' </remarks>
 	<Required()> _
 	Public Property SourceFiles() As Microsoft.Build.Framework.ITaskItem()
@@ -109,15 +109,15 @@ Public Class CopyEx
 	End Property
 
 	''' <summary>
-	''' �R�s�[��ƂȂ�t�@�C��
+	''' コピー先となるファイル
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
 	''' <remarks>
-	''' �ȗ��\�� ITaskItem �^�z��̃p�����[�^�ł��B<br/>
-	''' �\�[�X �t�@�C���̃R�s�[��t�@�C���̈ꗗ���w�肵�܂��B
-	''' ���̈ꗗ�̃t�@�C���́A<see cref="SourceFiles"/> �p�����[�^�Ɏw�肵���ꗗ�̓��e�� 1 �� 1 �őΉ����Ă���K�v������܂��B
-	''' �܂�A<see cref="SourceFiles"/> �̍ŏ��̃t�@�C���́A<c>DestinationFiles</c> �̍ŏ��̏ꏊ�ɃR�s�[����A2 �Ԗڈȍ~�̃t�@�C�������l�ɏ�������܂��B
+	''' 省略可能な ITaskItem 型配列のパラメータです。<br/>
+	''' ソース ファイルのコピー先ファイルの一覧を指定します。
+	''' この一覧のファイルは、<see cref="SourceFiles"/> パラメータに指定した一覧の内容と 1 対 1 で対応している必要があります。
+	''' つまり、<see cref="SourceFiles"/> の最初のファイルは、<c>DestinationFiles</c> の最初の場所にコピーされ、2 番目以降のファイルも同様に処理されます。
 	''' </remarks>
 	Public Property DestinationFiles() As Microsoft.Build.Framework.ITaskItem()
 		Get
@@ -161,23 +161,23 @@ Public Class CopyEx
 	End Property
 
 	''' <summary>
-	''' �t�@�C���̃R�s�[��f�B���N�g��
+	''' ファイルのコピー先ディレクトリ
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
 	''' <remarks>
-	''' �ȗ��\�� String �^�̃p�����[�^�ł��B<br/>
-	''' �t�@�C���̃R�s�[��f�B���N�g�����w�肵�܂��B
-	''' �t�@�C���ł͂Ȃ��A�f�B���N�g���ł���K�v������܂��B
-	''' �f�B���N�g�������݂��Ȃ��ꍇ�́A�����I�ɍ쐬����A�����֑S�Ẵt�@�C�����R�s�[����܂��B<br/>
-	''' �����֑S�Ẵt�@�C�����R�s�[�������Ȃ��Ƃ��́A<see cref="DestinationFiles"/> �łP�΂P�Ŏw�肷�邩�A<see cref="RemoveRoot"/> ���w�肵�Ă��������B<br/>
+	''' 省略可能な String 型のパラメータです。<br/>
+	''' ファイルのコピー先ディレクトリを指定します。
+	''' ファイルではなく、ディレクトリである必要があります。
+	''' ディレクトリが存在しない場合は、自動的に作成され、直下へ全てのファイルがコピーされます。<br/>
+	''' 直下へ全てのファイルをコピーしたくないときは、<see cref="DestinationFiles"/> で１対１で指定するか、<see cref="RemoveRoot"/> を指定してください。<br/>
 	''' </remarks>
 	Public Property DestinationFolder() As String
 		Get
 			Return Me._destinationFolder
 		End Get
 		Set(ByVal value As String)
-			' �Ō�́u���v�͏���
+			' 最後の「￥」は消す
 			If value.EndsWith(Path.DirectorySeparatorChar) Then
 				value = value.Substring(0, value.Length - 1)
 			End If
@@ -186,15 +186,15 @@ Public Class CopyEx
 	End Property
 
 	''' <summary>
-	''' �R�s�[���̃t�@�C���������菜���p�X��
+	''' コピー元のファイル名から取り除くパス名
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
 	''' <remarks>
-	''' �ȗ��\�� String �^�̃p�����[�^�ł��B<br/>
-	''' �R�s�[���̃t�@�C���������菜���p�X�����w�肵�܂��B<br/>
-	''' �w�肳�ꂽ�Ƃ��́A��v�����p�X����艺�̃t�H���_���ێ������܂܃R�s�[����܂��B<br/>
-	''' �ȗ����ꂽ�Ƃ��́A<see cref="DestinationFiles"/> ���́A<see cref="DestinationFolder" />�Ŏw�肳�ꂽ
+	''' 省略可能な String 型のパラメータです。<br/>
+	''' コピー元のファイル名から取り除くパス名を指定します。<br/>
+	''' 指定されたときは、一致したパス名より下のフォルダを維持したままコピーされます。<br/>
+	''' 省略されたときは、<see cref="DestinationFiles"/> 又は、<see cref="DestinationFolder" />で指定された
 	''' </remarks>
 	Public Property RemoveRoot() As String
 		Get
@@ -209,14 +209,14 @@ Public Class CopyEx
 	End Property
 
 	''' <summary>
-	''' �t�@�C���̏㏑������
+	''' ファイルの上書き扱い
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
 	''' <remarks>
-	''' �ȗ��\�� Boolean �^�̃p�����[�^�ł��B<br/>
-	''' �R�s�[��t�H���_�Ƀt�@�C�������ɑ��݂��Ă����Ƃ��A�㏑�����邩�w�肵�܂��B<br/>
-	''' <c>True</c> ���w�肷��Ə㏑�����܂��B�ȗ����� <c>False</c> �ƂȂ�㏑�����܂���B<br/>
+	''' 省略可能な Boolean 型のパラメータです。<br/>
+	''' コピー先フォルダにファイルが既に存在していたとき、上書きするか指定します。<br/>
+	''' <c>True</c> を指定すると上書きします。省略時は <c>False</c> となり上書きしません。<br/>
 	''' </remarks>
 	Public Property Overwrite() As Boolean
 		Get
@@ -228,14 +228,14 @@ Public Class CopyEx
 	End Property
 
 	''' <summary>
-	''' �t�@�C�����ǂݎ���p�������Ƃ��̈���
+	''' ファイルが読み取り専用だったときの扱い
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
 	''' <remarks>
-	''' �ȗ��\�� Boolean �^�̃p�����[�^�ł��B<br/>
-	''' �t�@�C�����ǂݎ���p�Ƃ��ă}�[�N����Ă���Ƃ��A�㏑�����邩�w�肵�܂��B<br/>
-	''' <c>True</c> ���w�肷��Ə㏑�����܂��B�ȗ����� <c>False</c> �ƂȂ�㏑�����܂���B<br/>
+	''' 省略可能な Boolean 型のパラメータです。<br/>
+	''' ファイルが読み取り専用としてマークされているとき、上書きするか指定します。<br/>
+	''' <c>True</c> を指定すると上書きします。省略時は <c>False</c> となり上書きしません。<br/>
 	''' </remarks>
 	Public Property OverwriteReadOnly() As Boolean
 		Get
@@ -252,10 +252,10 @@ Public Class CopyEx
 	''' <value></value>
 	''' <returns></returns>
 	''' <remarks>
-	''' �ȗ��\�� Boolean �^�̃p�����[�^�ł��B<br/>
-	''' <c>True</c> �ɐݒ肷��ƁA�R�s�[���̃t�@�C���ƃR�s�[��̃t�@�C���ŕύX���Ȃ��ꍇ�A�R�s�[�������X�L�b�v����܂��B<br/>
-	''' <see cref="Copy"/> �^�X�N�ł́A�t�@�C���̃T�C�Y���������A�ŏI�X�V�������������ꍇ�A�t�@�C���͕ύX����Ă��Ȃ��ƌ��Ȃ���܂��B<br/>
-	''' �ȗ����� <c>False</c> �ƂȂ�X�L�b�v���܂���B<br/>
+	''' 省略可能な Boolean 型のパラメータです。<br/>
+	''' <c>True</c> に設定すると、コピー元のファイルとコピー先のファイルで変更がない場合、コピー処理がスキップされます。<br/>
+	''' <see cref="Copy"/> タスクでは、ファイルのサイズが等しく、最終更新時刻が等しい場合、ファイルは変更されていないと見なされます。<br/>
+	''' 省略時は <c>False</c> となりスキップしません。<br/>
 	''' </remarks>
 	Public Property SkipUnchanged() As Boolean
 		Get
@@ -270,14 +270,14 @@ Public Class CopyEx
 #Region " Output "
 
 	''' <summary>
-	''' ���ۂɃR�s�[�����t�@�C��
+	''' 実際にコピーしたファイル
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
 	''' <remarks>
-	''' �ȗ��\�� ITaskItem �^�z��̏o�̓p�����[�^�ł��B<br/>
-	''' ����ɃR�s�[���ꂽ�A�C�e�����i�[����܂��B<br/>
-	''' <see cref="SkipUnchanged"/> �� <c>True</c> �̂Ƃ��ɃR�s�[�����Ȃ������t�@�C���͏����܂��B<br/>
+	''' 省略可能な ITaskItem 型配列の出力パラメータです。<br/>
+	''' 正常にコピーされたアイテムが格納されます。<br/>
+	''' <see cref="SkipUnchanged"/> が <c>True</c> のときにコピーされれなかったファイルは除きます。<br/>
 	''' </remarks>
 	<Output()> _
 	Public ReadOnly Property CopiedFiles() As Microsoft.Build.Framework.ITaskItem()
@@ -292,7 +292,7 @@ Public Class CopyEx
 #Region " Overrides Execute "
 
 	''' <summary>
-	''' �^�X�N�����s���܂��B
+	''' タスクを実行します。
 	''' </summary>
 	''' <returns></returns>
 	''' <remarks></remarks>
@@ -325,15 +325,15 @@ Public Class CopyEx
                 Log.LogMessage(MessageImportance.Normal, "Copying it from ""{0}"" to ""{1}""", srcFile, dstFile)
 #End If
 
-				' �t�@�C�������݂��邩�H
+				' ファイルが存在するか？
 				If File.Exists(dstFile) Then
-					' �ǂݎ���p�t�@�C���Ώ�
+					' 読み取り専用ファイル対処
 					If _overwriteReadOnly Then
 						If (File.GetAttributes(dstFile) And FileAttributes.ReadOnly) = FileAttributes.ReadOnly Then
 							File.SetAttributes(dstFile, FileAttributes.Normal)
 						End If
 					End If
-					' �ŏI�X�V�������قȂ�t�@�C���Ώ�
+					' 最終更新時刻が異なるファイル対処
 					If _skipUnchanged Then
 						If File.GetLastWriteTime(srcFile) = File.GetLastWriteTime(dstFile) Then
 							Continue While
@@ -341,13 +341,13 @@ Public Class CopyEx
 					End If
 				End If
 
-				' �R�s�[��̃t�H���_�`�F�b�N���Ė�����΍쐬
+				' コピー先のフォルダチェックして無ければ作成
 				chkDir = Path.GetDirectoryName(dstFile)
 				If Not Directory.Exists(chkDir) Then
 					Directory.CreateDirectory(chkDir)
 				End If
 
-				' �t�@�C���R�s�[
+				' ファイルコピー
 				File.Copy(srcFile, dstFile, _overwrite)
 				_copiedFiles.Add(src.Current)
 			End While

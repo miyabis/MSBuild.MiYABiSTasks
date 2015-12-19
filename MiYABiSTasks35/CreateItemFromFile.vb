@@ -1,23 +1,23 @@
-
+﻿
 Imports System.IO
 
 ''' <summary>
-''' �����R�[�h���w�肵�ăe�L�X�g �t�@�C������A�C�e���̈ꗗ��ǂݍ��݂܂��B
+''' 文字コードを指定してテキスト ファイルからアイテムの一覧を読み込みます。
 ''' </summary>
 ''' <remarks>
-''' <see cref="Microsoft.Build.Tasks.ReadLinesFromFile"/> �^�X�N�̋@�\���g�������^�X�N�ł��B<br/>
+''' <see cref="Microsoft.Build.Tasks.ReadLinesFromFile"/> タスクの機能を拡張したタスクです。<br/>
 ''' <br/>
 ''' <list type="bullet">
-''' <item><description>�t�@�C���̕����R�[�h���w�肵�ēǍ��߂�B</description></item>
+''' <item><description>ファイルの文字コードを指定して読込める。</description></item>
 ''' </list>
 ''' <br/>
-''' �o�̓p�����[�^�͉��L�̒ʂ�ł��B<br/>
+''' 出力パラメータは下記の通りです。<br/>
 ''' <br/>
 ''' <list type="table">
 ''' <listheader>
-''' <term>�o�̓p�����[�^</term><description>����</description>
+''' <term>出力パラメータ</term><description>説明</description>
 ''' </listheader>
-''' <item><term>Lines</term><description>�t�@�C������ǂݍ��񂾍s</description></item>
+''' <item><term>Lines</term><description>ファイルから読み込んだ行</description></item>
 ''' </list>
 ''' 
 ''' <example>
@@ -37,17 +37,17 @@ Imports System.IO
 Public Class CreateItemFromFile
 	Inherits Task
 
-	''' <summary>�e�L�X�g�t�@�C����</summary>
+	''' <summary>テキストファイル名</summary>
 	Private _file As String
-	''' <summary>�e�L�X�g�t�@�C���̕����R�[�h</summary>
+	''' <summary>テキストファイルの文字コード</summary>
 	Private _encoding As String
-	''' <summary>�t�@�C������ǂݍ��񂾍s</summary>
+	''' <summary>ファイルから読み込んだ行</summary>
 	Private _lines As List(Of ITaskItem)
 
-#Region " �R���X�g���N�^ "
+#Region " コンストラクタ "
 
 	''' <summary>
-	''' �f�t�H���g�R���X�g���N�^
+	''' デフォルトコンストラクタ
 	''' </summary>
 	''' <remarks></remarks>
 	Public Sub New()
@@ -55,16 +55,16 @@ Public Class CreateItemFromFile
 	End Sub
 
 #End Region
-#Region " �v���p�e�B "
+#Region " プロパティ "
 
 #Region " Input "
 
 	''' <summary>
-	''' �e�L�X�g�t�@�C����
+	''' テキストファイル名
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
-	''' <remarks>�K���w�肷��</remarks>
+	''' <remarks>必ず指定する</remarks>
 	<Required()> _
 	Public Property File() As String
 		Get
@@ -76,12 +76,12 @@ Public Class CreateItemFromFile
 	End Property
 
 	''' <summary>
-	''' �e�L�X�g�t�@�C���̕����R�[�h
+	''' テキストファイルの文字コード
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
 	''' <remarks>
-	''' �ȗ������Ƃ��́A�uUTF-8�v�Ƃ��܂��B
+	''' 省略したときは、「UTF-8」とします。
 	''' </remarks>
 	Public Property Encoding() As String
 		Get
@@ -96,12 +96,12 @@ Public Class CreateItemFromFile
 #Region " Output "
 
 	''' <summary>
-	''' �t�@�C������ǂݍ��񂾍s
+	''' ファイルから読み込んだ行
 	''' </summary>
 	''' <value></value>
 	''' <returns></returns>
 	''' <remarks>
-	''' ITaskItem �^�z��̏o�̓p�����[�^�ł��B
+	''' ITaskItem 型配列の出力パラメータです。
 	''' </remarks>
 	<Output()> _
 	Public ReadOnly Property Lines() As ITaskItem()
@@ -116,7 +116,7 @@ Public Class CreateItemFromFile
 #Region " Overrides Execute "
 
 	''' <summary>
-	''' �^�X�N�����s���܂��B
+	''' タスクを実行します。
 	''' </summary>
 	''' <returns></returns>
 	''' <remarks></remarks>
