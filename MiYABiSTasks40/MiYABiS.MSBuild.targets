@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<MiYABiSTasksPath>..\..\tools\net40\</MiYABiSTasksPath>
+	</PropertyGroup>
+
+	<UsingTask AssemblyFile="$(MiYABiSTasksPath)MiYABiSTasks.dll" TaskName="MiYABiS.Build.Tasks.CreateItemFromFile" />
+	<UsingTask AssemblyFile="$(MiYABiSTasksPath)MiYABiSTasks.dll" TaskName="MiYABiS.Build.Tasks.CreateItemEx" />
+	<UsingTask AssemblyFile="$(MiYABiSTasksPath)MiYABiSTasks.dll" TaskName="MiYABiS.Build.Tasks.FolderDiff" />
+	<UsingTask AssemblyFile="$(MiYABiSTasksPath)MiYABiSTasks.dll" TaskName="MiYABiS.Build.Tasks.CopyEx" />
+	<UsingTask AssemblyFile="$(MiYABiSTasksPath)MiYABiSTasks.dll" TaskName="MiYABiS.Build.Tasks.TFFolderDiff" />
+</Project>

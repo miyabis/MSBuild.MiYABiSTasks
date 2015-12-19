@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>MiYABiS.MSBuild</id>
+    <version>1.0.0</version>
+    <authors>MiYABiS</authors>
+    <owners>MiYABiS</owners>
+    <licenseUrl>http://miyabistasks.codeplex.com/license</licenseUrl>
+    <projectUrl>http://miyabistasks.codeplex.com/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>It is a task collection that adds an insufficient amount in the tasking facility of the MSBuild standard.</description>
+    <summary>It is a task collection that adds an insufficient amount in the tasking facility of the MSBuild standard.</summary>
+    <copyright>Copyright © 2015 MiYABiS All Rights Reserved.</copyright>
+    <language>en-US</language>
+    <tags>MSBuild Task</tags>
+  </metadata>
+  <files>
+    <file src="..\MiYABiSTasks35\MiYABiS.MSBuild.targets" target="build\net35\MiYABiS.MSBuild.targets" />
+    <file src="..\MiYABiSTasks35\bin\Release\MiYABiSTasks.dll" target="tools\net35\MiYABiSTasks.dll" />
+
+    <file src="..\MiYABiSTasks40\MiYABiS.MSBuild.targets" target="build\net40\MiYABiS.MSBuild.targets" />
+    <file src="..\MiYABiSTasks40\bin\Release\MiYABiSTasks.dll" target="tools\net40\MiYABiSTasks.dll" />
+  </files>
+</package>

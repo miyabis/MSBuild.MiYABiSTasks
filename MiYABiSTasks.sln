@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MiYABiSTasks35", "MiYABiSTasks35\MiYABiSTasks35.vbproj", "{9A42DFF5-E336-4054-A3E8-98857EA695D9}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{3F049510-E11B-4341-A394-3C4356C7980F}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MiYABiSTasksTest", "MiYABiSTasksTest\MiYABiSTasksTest.vbproj", "{24FB7DA1-3A58-4E86-9135-55DF4E8E7AA8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EBC34022-C4A4-486A-B763-2E18F21141FF}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		MiYABiSTasks.vsmdi = MiYABiSTasks.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MiYABiSTasks40", "MiYABiSTasks40\MiYABiSTasks40.vbproj", "{F06AAAAB-B11C-4DB1-819E-A4F4E2F84020}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup4.0\Setup40.vdproj", "{A722437D-619A-4DA5-B834-CE98935BF875}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiYABiSTasks", "MiYABiSTasks\MiYABiSTasks.csproj", "{0451BAEF-DF2E-4B98-8644-94EE9415E389}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F06AAAAB-B11C-4DB1-819E-A4F4E2F84020} = {F06AAAAB-B11C-4DB1-819E-A4F4E2F84020}
+		{9A42DFF5-E336-4054-A3E8-98857EA695D9} = {9A42DFF5-E336-4054-A3E8-98857EA695D9}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A42DFF5-E336-4054-A3E8-98857EA695D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A42DFF5-E336-4054-A3E8-98857EA695D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A42DFF5-E336-4054-A3E8-98857EA695D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A42DFF5-E336-4054-A3E8-98857EA695D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F049510-E11B-4341-A394-3C4356C7980F}.Debug|Any CPU.ActiveCfg = Debug
+		{3F049510-E11B-4341-A394-3C4356C7980F}.Release|Any CPU.ActiveCfg = Release
+		{24FB7DA1-3A58-4E86-9135-55DF4E8E7AA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24FB7DA1-3A58-4E86-9135-55DF4E8E7AA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24FB7DA1-3A58-4E86-9135-55DF4E8E7AA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24FB7DA1-3A58-4E86-9135-55DF4E8E7AA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F06AAAAB-B11C-4DB1-819E-A4F4E2F84020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F06AAAAB-B11C-4DB1-819E-A4F4E2F84020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F06AAAAB-B11C-4DB1-819E-A4F4E2F84020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F06AAAAB-B11C-4DB1-819E-A4F4E2F84020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A722437D-619A-4DA5-B834-CE98935BF875}.Debug|Any CPU.ActiveCfg = Debug
+		{A722437D-619A-4DA5-B834-CE98935BF875}.Debug|Any CPU.Build.0 = Debug
+		{A722437D-619A-4DA5-B834-CE98935BF875}.Release|Any CPU.ActiveCfg = Release
+		{A722437D-619A-4DA5-B834-CE98935BF875}.Release|Any CPU.Build.0 = Release
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = MiYABiSTasks.vsmdi
+	EndGlobalSection
+EndGlobal

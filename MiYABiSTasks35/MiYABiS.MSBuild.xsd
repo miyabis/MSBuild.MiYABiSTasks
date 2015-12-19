@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/developer/msbuild/2003" elementFormDefault="qualified">
+	<xs:include schemaLocation="Microsoft.Build.Core.xsd"/>
+	<xs:element name="MiYABiS.Build.Tasks.FolderDiff" substitutionGroup="msb:Task">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="msb:TaskType">
+					<xs:attribute name="FolderSrc" use="required">
+						<xs:annotation>
+							<xs:documentation>
+								<!-- _locID_text="MiYABiS.Build.Tasks.FolderDiff_FolderSrc" _locComment="" -->
+								比較元のフォルダ名です。
+							</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="FolderDst" use="required" />
+					<xs:attribute name="ExcludeSrc" />
+					<xs:attribute name="ExcludeDst" />
+					<xs:attribute name="IgnoreCase" />
+					<xs:attribute name="SrcOnly" />
+					<xs:attribute name="DstOnly" />
+					<xs:attribute name="Different" />
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MiYABiS.Build.Tasks.CopyEx" substitutionGroup="msb:Task">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="msb:TaskType">
+					<xs:attribute name="SourceFiles" use="required">
+					</xs:attribute>
+					<xs:attribute name="DestinationFolder" />
+					<xs:attribute name="Overwrite" />
+					<xs:attribute name="OverwriteReadOnly" />
+					<xs:attribute name="SkipUnchanged" />
+					<xs:attribute name="RemoveRoot" />
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MiYABiS.Build.Tasks.CreateItemFromFile" substitutionGroup="msb:Task">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="msb:TaskType">
+					<xs:attribute name="File" use="required">
+					</xs:attribute>
+					<xs:attribute name="Encoding" />
+					<xs:attribute name="Lines" />
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MiYABiS.Build.Tasks.CreateItemEx" substitutionGroup="msb:Task">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="msb:TaskType">
+					<xs:attribute name="Include" use="required">
+					</xs:attribute>
+					<xs:attribute name="Exclude" />
+					<xs:attribute name="ReadOnly" />
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="MiYABiS.Build.Tasks.TFFolderDiff" substitutionGroup="msb:Task">
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="msb:TaskType">
+					<xs:attribute name="FolderSrc" use="required">
+					</xs:attribute>
+					<xs:attribute name="FolderDst" use="required">
+					</xs:attribute>
+					<xs:attribute name="SrcOnlyFiles" />
+					<xs:attribute name="DstOnlyFiles" />
+					<xs:attribute name="SrcDifferentFiles" />
+					<xs:attribute name="DstDifferentFiles" />
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
